@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders | Restaurant AI</title>
+    <link rel="stylesheet" href="assets/css/orders.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="index.html">Restaurant AI</a>
+
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a class="active" href="order.html">Orders</a>
+            <a href="dashboard.html">Dashboard</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="order-hero">
+            <div class="hero-content">
+                <p class="eyebrow">YOUR ORDER</p>
+                <h1>Good food is<br>worth ordering.</h1>
+                <p class="hero-text">Review your choices, add your details and send your order straight to the restaurant.</p>
+            </div>
+        </section>
+
+        <section class="order-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">CHECKOUT</p>
+                    <h2>Place your order</h2>
+                    <p>Everything looks good? Let's get it moving.</p>
+                </div>
+            </div>
+
+            <div class="order-layout">
+                <div class="order-card">
+                    <div class="card-top">
+                        <div>
+                            <p class="card-label">ORDER SUMMARY</p>
+                            <h3>Your selected items</h3>
+                        </div>
+                        <a href="menu.html" class="small-link">Back to menu</a>
+                    </div>
+
+                    <div id="cartItems" class="cart-items">
+                        <div class="empty-cart">
+                            <span class="empty-icon">+</span>
+                            <h4>Your order is empty</h4>
+                            <p>Go back to the menu and choose something you like.</p>
+                            <a href="menu.html" class="button button-dark">Explore Menu</a>
+                        </div>
+                    </div>
+
+                    <div class="order-total">
+                        <span>Total</span>
+                        <strong id="cartTotal">₦0</strong>
+                    </div>
+                </div>
+
+                <form id="orderForm" class="details-card">
+                    <div class="card-top">
+                        <div>
+                            <p class="card-label">YOUR DETAILS</p>
+                            <h3>Almost there</h3>
+                        </div>
+                    </div>
+
+                    <label for="customerName">Your name</label>
+                    <input
+                        type="text"
+                        id="customerName"
+                        name="customerName"
+                        placeholder="Enter your name"
+                        autocomplete="name"
+                        required
+                    >
+
+                    <div class="form-note">
+                        <span class="note-dot"></span>
+                        Your order will be saved with a pending status.
+                    </div>
+
+                    <button type="submit" class="button button-dark submit-button" id="placeOrderButton">
+                        Place Order
+                    </button>
+
+                    <p id="orderMessage" class="order-message"></p>
+                </form>
+            </div>
+        </section>
+
+        <section class="recent-section">
+            <div class="section-heading recent-heading">
+                <div>
+                    <p class="eyebrow">ORDER HISTORY</p>
+                    <h2>Recent orders</h2>
+                    <p>The latest orders received by the restaurant.</p>
+                </div>
+                <button type="button" class="refresh-button" id="refreshOrders">Refresh</button>
+            </div>
+
+            <div id="ordersList" class="orders-list">
+                <div class="loading-state">Loading recent orders...</div>
+            </div>
+        </section>
+    </main>
+
+    <a href="ai.html" class="ai-button" aria-label="Open Restaurant AI">
+        <span>✦</span>
+    </a>
+
+    <script src="assets/js/orders.js"></script>
+</body>
+</html>

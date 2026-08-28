@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Restaurant AI</title>
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body class="dashboard-page">
+
+    <header class="site-header">
+        <nav class="navbar">
+            <a class="brand" href="index.html">Restaurant AI</a>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="orders.html">Orders</a>
+                <a class="active" href="dashboard.html">Dashboard</a>
+            </div>
+
+            <button
+                class="mobile-menu-button"
+                id="mobileMenuButton"
+                type="button"
+                aria-label="Open menu"
+            >
+                ☰
+            </button>
+        </nav>
+
+        <div class="mobile-nav" id="mobileNav">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="orders.html">Orders</a>
+            <a class="active" href="dashboard.html">Dashboard</a>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="dashboard-hero">
+            <div class="dashboard-hero-content">
+                <p class="eyebrow">Restaurant management</p>
+                <h1>Owner Dashboard</h1>
+                <p>
+                    Manage your menu and keep track of the restaurant's current performance.
+                </p>
+            </div>
+        </section>
+
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Overview</p>
+                    <h2>Restaurant at a glance</h2>
+                    <p>Current information from your restaurant database.</p>
+                </div>
+
+                <button
+                    type="button"
+                    class="refresh-button"
+                    id="refreshDashboard"
+                >
+                    Refresh
+                </button>
+            </div>
+
+            <div id="analyticsStatus" class="dashboard-status">
+                Loading analytics...
+            </div>
+
+            <div class="analytics-grid">
+
+                <article class="analytics-card">
+                    <span class="analytics-label">TOTAL ORDERS</span>
+                    <strong id="totalOrders">0</strong>
+                    <p>Orders received</p>
+                </article>
+
+                <article class="analytics-card">
+                    <span class="analytics-label">TOTAL REVENUE</span>
+                    <strong id="totalRevenue">₦0</strong>
+                    <p>Revenue from orders</p>
+                </article>
+
+                <article class="analytics-card">
+                    <span class="analytics-label">PENDING ORDERS</span>
+                    <strong id="pendingOrders">0</strong>
+                    <p>Orders awaiting action</p>
+                </article>
+
+            </div>
+
+        </section>
+
+        <section class="dashboard-section menu-management-section">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Menu management</p>
+                    <h2>Your menu</h2>
+                    <p>View the menu currently stored in Supabase.</p>
+                </div>
+
+                <button
+                    type="button"
+                    class="button button-dark"
+                    id="showAddMenuButton"
+                >
+                    Add Menu Item
+                </button>
+            </div>
+
+            <div
+                id="menuManagementStatus"
+                class="dashboard-status"
+            >
+                Loading menu...
+            </div>
+
+            <div id="menuManagementGrid" class="menu-management-grid"></div>
+
+        </section>
+
+        <section
+            class="dashboard-section add-menu-section"
+            id="addMenuSection"
+        >
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Menu management</p>
+                    <h2>Add a menu item</h2>
+                    <p>
+                        Add a new item to the restaurant's menu database.
+                    </p>
+                </div>
+            </div>
+
+            <form id="addMenuForm" class="menu-form">
+
+                <div class="form-grid">
+
+                    <div class="form-field">
+                        <label for="menuName">Name</label>
+                        <input
+                            type="text"
+                            id="menuName"
+                            name="name"
+                            placeholder="e.g. Pepperoni Pizza"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="menuPrice">Price</label>
+                        <input
+                            type="number"
+                            id="menuPrice"
+                            name="price"
+                            placeholder="e.g. 15.49"
+                            min="0"
+                            step="0.01"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="menuCategory">Category</label>
+                        <input
+                            type="text"
+                            id="menuCategory"
+                            name="category"
+                            placeholder="e.g. Pizza"
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="menuImageUrl">Image URL</label>
+                        <input
+                            type="url"
+                            id="menuImageUrl"
+                            name="image_url"
+                            placeholder="https://..."
+                        >
+                    </div>
+
+                </div>
+
+                <div class="form-field">
+                    <label for="menuDescription">Description</label>
+                    <textarea
+                        id="menuDescription"
+                        name="description"
+                        rows="5"
+                        placeholder="Describe the menu item..."
+                    ></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button
+                        type="submit"
+                        class="button button-dark"
+                        id="addMenuButton"
+                    >
+                        Add Menu Item
+                    </button>
+
+                    <button
+                        type="button"
+                        class="button button-light"
+                        id="cancelAddMenuButton"
+                    >
+                        Cancel
+                    </button>
+                </div>
+
+                <p
+                    id="addMenuMessage"
+                    class="form-message"
+                ></p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <a
+        class="ai-float-button"
+        href="ai.html"
+        aria-label="Open AI assistant"
+        title="Ask the AI assistant"
+    >
+        <span>✦</span>
+    </a>
+
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

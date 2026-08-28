@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI restaurant ordering assistant">
+  <title>AI Order Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/ai.css">
+</head>
+<body>
+  <div class="page-shell">
+
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Restaurant home">
+        <span class="brand-mark">R</span>
+        <span>
+          <strong>Restaurant</strong>
+          <small>AI Dining</small>
+        </span>
+      </a>
+
+      <nav class="top-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a class="active" href="AI.html">AI Assistant</a>
+        <a href="orders.html">My Orders</a>
+      </nav>
+
+      <a class="orders-link" href="order.html">
+        <span>My Orders</span>
+        <span class="arrow">→</span>
+      </a>
+    </header>
+
+    <main class="ai-page">
+      <section class="hero-copy">
+        <div class="eyebrow"><span></span> SMART DINING ASSISTANT</div>
+        <h1>Tell me what<br><em>you’re craving.</em></h1>
+        <p>
+          Describe what you want naturally. I’ll check the restaurant menu,
+          build your order, and let you review it before anything is placed.
+        </p>
+      </section>
+
+      <section class="assistant-card" aria-label="AI restaurant assistant">
+        <div class="assistant-header">
+          <div class="assistant-title">
+            <div class="ai-avatar">✦</div>
+            <div>
+              <h2>Restaurant AI</h2>
+              <p><span class="online-dot"></span> Online · Menu-aware</p>
+            </div>
+          </div>
+          <button id="clearChatBtn" class="icon-button" type="button" title="Start a new conversation" aria-label="Start a new conversation">
+            ↻
+          </button>
+        </div>
+
+        <div id="chatMessages" class="chat-messages" aria-live="polite">
+          <div class="message-row assistant-row">
+            <div class="message-avatar">✦</div>
+            <div class="message assistant-message">
+              <p>Hi! Tell me what you’d like to eat. You can describe a dish, a few dishes, or even a preference like “something spicy and filling.”</p>
+              <div class="quick-prompts">
+                <button type="button" data-prompt="I want something filling">Something filling</button>
+                <button type="button" data-prompt="Show me a popular meal">Popular meal</button>
+                <button type="button" data-prompt="I want a meal under 20">Under 20</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="typingIndicator" class="typing-indicator hidden">
+          <span></span><span></span><span></span>
+          <small>Checking the menu…</small>
+        </div>
+
+        <div id="orderPreview" class="order-preview hidden"></div>
+
+        <form id="chatForm" class="chat-form" autocomplete="off">
+          <label class="sr-only" for="messageInput">Tell the AI what you want</label>
+          <input
+            id="messageInput"
+            name="message"
+            type="text"
+            maxlength="1000"
+            placeholder="Tell me what you’d like to order..."
+            required
+          >
+          <button id="sendButton" type="submit" class="send-button">
+            <span>Send</span>
+            <span class="send-icon">↑</span>
+          </button>
+        </form>
+
+        <p class="privacy-note">The AI checks the restaurant’s supplied menu. It never invents menu items or prices.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="assets/js/ai.js"></script>
+</body>
+</html>

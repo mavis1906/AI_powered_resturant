@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Restaurant AI</title>
+    <link rel="stylesheet" href="assets/css/menu.css">
+</head>
+<body class="menu-page">
+    <header class="site-header">
+        <nav class="navbar">
+            <a class="brand" href="index.html">Restaurant AI</a>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a class="active" href="menu.html">Menu</a>
+                <a href="orders.html">Orders</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+
+            <button class="mobile-menu-button" id="mobileMenuButton" type="button" aria-label="Open menu">
+                ☰
+            </button>
+        </nav>
+
+        <div class="mobile-nav" id="mobileNav">
+            <a href="index.html">Home</a>
+            <a class="active" href="menu.html">Menu</a>
+            <a href="orders.html">Orders</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="menu-hero">
+            <div class="menu-hero-content">
+                <p class="eyebrow">Fresh from the kitchen</p>
+                <h1>Explore Our Menu</h1>
+                <p>Browse dishes, discover something new, and find exactly what you are craving.</p>
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <div class="menu-heading">
+                <div>
+                    <p class="eyebrow">Our selection</p>
+                    <h2>Today's Menu</h2>
+                </div>
+
+                <div class="menu-controls">
+                    <label class="search-box">
+                        <span>⌕</span>
+                        <input id="menuSearch" type="search" placeholder="Search menu..." autocomplete="off">
+                    </label>
+
+                    <select id="categoryFilter" aria-label="Filter by category">
+                        <option value="all">All categories</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="menuStatus" class="menu-status">Loading menu...</div>
+            <div id="menuGrid" class="menu-grid"></div>
+        </section>
+    </main>
+
+    <a class="ai-float-button" href="ai.html" aria-label="Open AI assistant" title="Ask the AI assistant">
+        <span>✦</span>
+    </a>
+
+    <script src="assets/js/menu.js"></script>
+</body>
+</html>
