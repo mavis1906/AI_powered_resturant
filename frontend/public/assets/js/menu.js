@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = "https://ai-powered-resturant.onrender.com/api";
 
 const menuGrid = document.getElementById("menuGrid");
 const menuStatus = document.getElementById("menuStatus");

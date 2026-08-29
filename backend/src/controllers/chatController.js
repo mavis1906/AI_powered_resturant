@@ -11,8 +11,8 @@ export async function handleChatMessage(req, res) {
     }
 
     const [menuResponse, ordersResponse] = await Promise.all([
-      fetch("http://localhost:5000/api/menu/direct"),
-      fetch("http://localhost:5000/api/orders/direct")
+      fetch("https://ai-powered-resturant.onrender.com/api/menu/direct"),
+      fetch("https://ai-powered-resturant.onrender.com/api/orders/direct")
     ]);
 
     if (!menuResponse.ok) {

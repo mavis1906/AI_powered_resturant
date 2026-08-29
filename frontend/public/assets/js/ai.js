@@ -6,8 +6,8 @@ const typingIndicator = document.getElementById("typingIndicator");
 const orderPreview = document.getElementById("orderPreview");
 const clearChatBtn = document.getElementById("clearChatBtn");
 
-const CHAT_URL = "http://localhost:5000/api/chat/direct";
-const ORDER_URL = "http://localhost:5000/api/orders/direct";
+const CHAT_URL = "https://ai-powered-resturant.onrender.com/api/chat/direct";
+const ORDER_URL = "https://ai-powered-resturant.onrender.com/api/orders/direct";
 
 let history = [];
 let currentOrder = null;
