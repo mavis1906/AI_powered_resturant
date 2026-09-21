@@ -18,13 +18,13 @@ export async function getOrders(req, res) {
     const { data: items, error: itemsError } = await supabase
       .from('order_items')
       .select('*')
-      .in('orders_id', orderIds);
+      .in('order_id', orderIds);
 
     if (itemsError) throw itemsError;
 
     const menuItemIds = [...new Set(
       (items || [])
-        .map((item) => item.menu_items_id)
+        .map((item) => item.menu_item_id)
         .filter(Boolean)
     )];
 
@@ -44,10 +44,10 @@ export async function getOrders(req, res) {
     const ordersWithItems = orders.map((order) => ({
       ...order,
       order_items: (items || [])
-        .filter((item) => item.orders_id === order.id)
+        .filter((item) => item.order_id === order.id)
         .map((item) => {
           const menuItem = menuItems.find(
-            (menu) => menu.id === item.menu_items_id
+            (menu) => menu.id === item.menu_item_id
           );
 
           return {
@@ -98,15 +98,15 @@ export async function createOrder(req, res) {
     if (Array.isArray(items) && items.length > 0) {
   const resolvedItems = await Promise.all(
     items.map(async (item) => {
-      if (item.menu_items_id) {
+      if (item.menu_item_id) {
         const { data: menuItem, error: menuError } = await supabase
           .from('menu_items')
           .select('id, name, price, is_available')
-          .eq('id', item.menu_items_id)
+          .eq('id', item.menu_item_id)
           .single();
 
         if (menuError || !menuItem) {
-          throw new Error(`Menu item not found: ${item.menu_items_id}`);
+          throw new Error(`Menu item not found: ${item.menu_item_id}`);
         }
 
         return {
@@ -148,8 +148,8 @@ export async function createOrder(req, res) {
   }
 
   const orderItems = resolvedItems.map(({ menuItem, quantity }) => ({
-  orders_id: data.id,
-  menu_items_id: menuItem.id,
+  order_id: data.id,
+  menu_item_id: menuItem.id,
   quantity,
   price_at_time: menuItem.price
 }));
@@ -171,7 +171,7 @@ export async function createOrder(req, res) {
     const { data: savedItems, error: savedItemsError } = await supabase
       .from('order_items')
       .select('*')
-      .eq('orders_id', data.id);
+      .eq('order_id', data.id);
 
     if (savedItemsError) throw savedItemsError;
 

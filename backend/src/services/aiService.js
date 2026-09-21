@@ -26,12 +26,12 @@ function normalizeResponse(parsed) {
           items: Array.isArray(parsed.order.items)
             ? parsed.order.items
                 .map((item) => ({
-                  menu_items_id: item.menu_items_id,
+                  menu_item_id: item.menu_item_id,
                   name: item.name,
                   quantity: Number(item.quantity) || 1,
                   price: Number(item.price) || 0
                 }))
-                .filter((item) => item.menu_items_id != null)
+                .filter((item) => item.menu_item_id != null)
             : [],
           total_amount: Number(parsed.order.total_amount) || 0
         }
@@ -86,7 +86,7 @@ Return ONLY valid JSON in this exact shape:
   "order": {
     "items": [
       {
-        "menu_items_id": "exact menu item id",
+        "menu_item_id": "exact menu item id",
         "name": "exact menu item name",
         "quantity": 1,
         "price": 0

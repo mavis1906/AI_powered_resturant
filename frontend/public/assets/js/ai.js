@@ -73,7 +73,7 @@ function normalizeOrder(order) {
     const items = Array.isArray(order.items)
         ? order.items
             .map((item) => ({
-                menu_items_id: item?.menu_items_id || null,
+                menu_item_id: item?.menu_item_id || null,
                 name: String(item?.name || "").trim(),
                 quantity: Math.max(1, Number(item?.quantity) || 1),
                 price: Math.max(0, Number(item?.price) || 0)
